@@ -1,0 +1,76 @@
+version: '3'
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: pstraining_mysql
+    security_opt:
+      - seccomp:unconfined
+    command: --default-authentication-plugin=mysql_native_password
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
+    env_file:
+      - .env
+    volumes:
+      - pstraining-mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - pstraining
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.0
+    container_name: pstraining_phpmyadmin
+    hostname: phpmyadmin
+    domainname: presta-training.fb
+    ports:
+      -  8080:80
+    networks:
+      - pstraining
+    env_file:
+      - .env
+
+  mailserver:
+    image: mailhog/mailhog:v1.0.1
+    container_name: pstraining_mailserver
+    logging:
+      driver: 'none'  # disable saving logs
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+    networks:
+      - pstraining
+
+  pstraining:
+    build: .
+    image: pstraining:1.7.8
+    container_name: pstraining_www
+    hostname: www
+    domainname: presta-training.fb
+    security_opt:
+      - seccomp:unconfined
+    env_file:
+      - .env
+    volumes :
+      - pstraining-www:/var/www/html
+      - ./www/modules/:/var/www/html/modules
+      - ./www/themes/:/var/www/html/themes
+    restart: always
+    ports:
+      - 80:80
+      - 9003:9003 # xdebug
+    networks:
+      - pstraining
+    extra_hosts:
+      - "www.presta-training.fb:127.0.0.1"
+      - "media1.presta-training.fb:127.0.0.1"
+      - "media2.presta-training.fb:127.0.0.1"
+      - "media3.presta-training.fb:127.0.0.1"
+networks:
+    pstraining:
+      name: pstraining_network
+
+volumes:
+  pstraining-mysql:
+  pstraining-www:
