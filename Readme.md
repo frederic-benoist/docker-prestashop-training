@@ -19,7 +19,12 @@ The image has Mysql, Apache and PHP installed with all modules and configuration
 
 ## Install
 
-### Clone this repository
+### Create directory and move in
+
+``mkdir training``
+``cd training``
+
+### Clone this repository in created directory
 
 ``git clone https://github.com/frederic-benoist/docker-prestashop-training.git .``
 
