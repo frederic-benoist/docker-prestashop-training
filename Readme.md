@@ -21,22 +21,30 @@ The image has Mysql, Apache and PHP installed with all modules and configuration
 
 ### Create directory and move in
 
-``mkdir training``
-``cd training``
+```
+mkdir training
+cd training
+```
 
 ### Clone this repository in created directory
 
-``git clone https://github.com/frederic-benoist/docker-prestashop-training.git .``
+```
+git clone https://github.com/frederic-benoist/docker-prestashop-training.git .
+```
 
 ### Start the docker-compose build.
 
-``docker-compose up --build``
+```
+docker-compose up --build
+```
 
 And wait...
 
 ### Check if all containers are up
 
-``docker ps``
+```
+docker ps
+```
 
 You will see 4 containers running
 -pstraining_mailserver
