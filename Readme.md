@@ -73,8 +73,8 @@ To access the PrestaShop Training front office :
 
 To access the PrestaShop Training back office :
 -Navigate to http://www.presta-training.fb/admin-dev/
--Login : admin@presta-trainin.fb 
--Password: academy
+-Login : admin@presta-training.fb
+-Password: training
 
 To view emails sent by the store (With MailHog)
 - Navigate to http://www.presta-training.fb:8025
