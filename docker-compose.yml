@@ -1,5 +1,3 @@
-version: '3'
-
 services:
 
   mysql:
@@ -15,7 +13,8 @@ services:
     volumes:
       - pstraining-mysql:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "3316:3306"
+    restart: unless-stopped
     networks:
       - pstraining
 
@@ -26,8 +25,9 @@ services:
     domainname: presta-training.fb
     ports:
       -  8080:80
+    restart: unless-stopped
     networks:
-      - pstraining
+      - pstraining      
     env_file:
       - .env
 
@@ -39,12 +39,13 @@ services:
     ports:
       - 1025:1025 # smtp server
       - 8025:8025 # web ui
+    restart: unless-stopped
     networks:
       - pstraining
 
   pstraining:
     build: .
-    image: pstraining:1.7.8
+    image: pstraining:8.2.0-8.1-apache
     container_name: pstraining_www
     hostname: www
     domainname: presta-training.fb
@@ -54,9 +55,7 @@ services:
       - .env
     volumes :
       - pstraining-www:/var/www/html
-      - ./www/modules/:/var/www/html/modules
-      - ./www/themes/:/var/www/html/themes
-    restart: always
+    restart: unless-stopped
     ports:
       - 80:80
       - 9003:9003 # xdebug
