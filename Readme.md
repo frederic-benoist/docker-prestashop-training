@@ -5,11 +5,12 @@ The image has Mysql, Apache and PHP installed with all modules and configuration
 - Apache 2.4.latest (https://www.apache.org/) 
 - PHP 7.4.latest (https://github.com/php)
 - MySQL 8.0.latest (https://github.com/mysql)
-- PrestaShop 1.7.8.latest (https://github.com/PrestaShop/PrestaShop)
+- PrestaShop 8.latest (https://github.com/PrestaShop/PrestaShop)
+- Theme Hummingbird latest (https://github.com/PrestaShop/hummingbird)
 - MailHog 1.0.1 (https://github.com/mailhog/MailHog)
 - Xdebug 3.1.4 (https://github.com/xdebug/xdebug)
 - Nvm 0.39.0 (https://github.com/nvm-sh/nvm)   
-- NodeJS - 14.18.1 (https://github.com/nodejs)
+- NodeJS - 20.19.4 (https://github.com/nodejs)
 - Composer 2.3.5 (https://github.com/composer/composer)
 
 ## Prerequisites

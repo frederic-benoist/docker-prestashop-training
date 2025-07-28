@@ -11,35 +11,19 @@ remove_module(){
   rm -rf /some /var/www/html/modules/$1
 }
 
-echo "\n* Start uninstalling and removing useless modules ..."
+echo "\n* Start removing useless modules ..."
 
 remove_module emarketing
 remove_module ps_eventbus
 remove_module statsvisits
 remove_module ps_accounts
-
-uninstall_module gamification
 remove_module gamification
-
-uninstall_module ps_checkout
 remove_module ps_checkout
-
-uninstall_module psaddonsconnect
 remove_module psaddonsconnect
-
-uninstall_module welcome
 remove_module welcome
-
-uninstall_module ps_metrics
 remove_module ps_metrics
-
-uninstall_module ps_facebook
 remove_module ps_facebook
-
-uninstall_module psxmarketingwithgoogle
 remove_module psxmarketingwithgoogle
-
-uninstall_module ps_mbo
 remove_module ps_mbo
 
-echo "\n* Uninstalling and removing useless modules - Done"
+echo "\n* Removing useless modules - Done"

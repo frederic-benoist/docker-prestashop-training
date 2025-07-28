@@ -1,6 +1,6 @@
-FROM prestashop/prestashop:1.7.8
+FROM prestashop/prestashop:8.2.0-8.1-apache
 
-ENV NODE_VERSION=14.18.1
+ENV NODE_VERSION=20.19.4
 ENV NVM_DIR=/root/.nvm
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
